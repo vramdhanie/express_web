@@ -1,0 +1,20 @@
+{
+  "name": "express_web",
+  "version": "0.0.1",
+  "description": "Server for simple web application",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test --end"
+  },
+  "keywords": [
+    "express",
+    "ES6",
+    "mongo",
+    "Web",
+    "API",
+    "Restful",
+    "JWT"
+  ],
+  "author": "Vincent Ramdhanie",
+  "license": "MIT"
+}
