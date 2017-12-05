@@ -4,6 +4,7 @@
   "description": "Server for simple web application",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server",
     "test": "mocha test --end"
   },
   "keywords": [
@@ -18,6 +19,7 @@
   "author": "Vincent Ramdhanie",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.16.2"
   }
 }
