@@ -20,6 +20,8 @@ app.use((req, res, next) => {
 });
 
 
+const {  router: userRouter } = require('./users');
+
 
 let server;
 
