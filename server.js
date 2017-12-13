@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 
 const {  router: userRouter } = require('./users');
-
+app.use('/user', userRouter);
 
 let server;
 
