@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const passport = require('passport');
 
 const app = express();
 const { PORT, DATABASE_URL } = require('./config');
@@ -20,8 +21,18 @@ app.use((req, res, next) => {
 });
 
 
-const {  router: userRouter } = require('./users');
+const { router: userRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
 app.use('/user', userRouter);
+app.use('/auth', authRouter);
+
+app.use('*', (req, res) => {
+    return res.status(404).json({message: 'Not Found'});
+});
 
 let server;
 
