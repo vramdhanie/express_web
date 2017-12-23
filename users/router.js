@@ -15,7 +15,7 @@ router.post('/', [check('username').exists(), check('password').exists()], (req,
         return res.status(422).json({ errors: errors.mapped() });
     }
 
-    const { username, password, firstName='', lastName='' } = req.body;
+    const { username, password, firstName='', lastName='', email='' } = req.body;
 
     return User.find({username})
         .count()
@@ -35,7 +35,8 @@ router.post('/', [check('username').exists(), check('password').exists()], (req,
                 username,
                 password: hash,
                 firstName,
-                lastName
+                lastName,
+                email,
             });
         })
         .then(user => {
